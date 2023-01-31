@@ -1,5 +1,5 @@
 {% set name = "pgsqlite" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pgsqlite-{{ version }}.tar.gz
-  sha256: 9ca2fc41741b8570ae5052391af12ada6dc00f1f339c0deb0e0882aeffc90ac8
+  sha256: 95d4c17d1d1887fbbc6c5559d02fca28c3a18fb3c735dc2b415a91e607b8ae5f
 
 build:
   noarch: python
