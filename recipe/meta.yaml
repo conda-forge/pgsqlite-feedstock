@@ -6,20 +6,20 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pgsqlite-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pgsqlite-{{ version }}.tar.gz
   sha256: 3e778c5266aec65e36fc67cf3dca1d84982941f58e9510a39e9d0188e9929f82
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - sqlite-utils >=3.28
     - psycopg >=3.1
     - psycopg-c >=3.1
@@ -27,6 +27,8 @@ requirements:
     - sqlglot >=6.1.0
 
 test:
+  requires:
+    - python {{ python_min }}
   source_files:
     - pgsqlite
   imports:
